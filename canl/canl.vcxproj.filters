@@ -9,18 +9,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="includes\test.h">
-      <Filter>includes</Filter>
-    </ClInclude>
     <ClInclude Include="includes\NetworkClient.h" />
     <ClInclude Include="includes\HttpMethod.h" />
     <ClInclude Include="includes\HttpRequestOptions.h" />
     <ClInclude Include="includes\HttpResponseMessage.h" />
+    <ClInclude Include="includes\NetworkUpdateMessage.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\test.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\NetworkClient.cpp" />
   </ItemGroup>
 </Project>
