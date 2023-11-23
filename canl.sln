@@ -1,56 +1,36 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "canl", "canl\canl.vcxproj", "{4304957C-2F3B-960D-D827-7C10C43D120F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example", "example\example.vcxproj", "{F1997D81-5D79-FC1C-6691-87F3D2EF627E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Dynamic Library|Win32 = Dynamic Library|Win32
-		Dynamic Library|x64 = Dynamic Library|x64
-		Example|Win32 = Example|Win32
 		Example|x64 = Example|x64
-		Static Library Debug|Win32 = Static Library Debug|Win32
 		Static Library Debug|x64 = Static Library Debug|x64
-		Static Library|Win32 = Static Library|Win32
 		Static Library|x64 = Static Library|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Dynamic Library|Win32.ActiveCfg = Dynamic Library|Win32
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Dynamic Library|Win32.Build.0 = Dynamic Library|Win32
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Dynamic Library|x64.ActiveCfg = Dynamic Library|x64
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Dynamic Library|x64.Build.0 = Dynamic Library|x64
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Example|Win32.ActiveCfg = Example|Win32
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Example|Win32.Build.0 = Example|Win32
 		{4304957C-2F3B-960D-D827-7C10C43D120F}.Example|x64.ActiveCfg = Example|x64
 		{4304957C-2F3B-960D-D827-7C10C43D120F}.Example|x64.Build.0 = Example|x64
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library Debug|Win32.ActiveCfg = Static Library Debug|Win32
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library Debug|Win32.Build.0 = Static Library Debug|Win32
 		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library Debug|x64.ActiveCfg = Static Library Debug|x64
 		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library Debug|x64.Build.0 = Static Library Debug|x64
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library|Win32.ActiveCfg = Static Library|Win32
-		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library|Win32.Build.0 = Static Library|Win32
 		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library|x64.ActiveCfg = Static Library|x64
 		{4304957C-2F3B-960D-D827-7C10C43D120F}.Static Library|x64.Build.0 = Static Library|x64
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Dynamic Library|Win32.ActiveCfg = Dynamic Library|Win32
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Dynamic Library|Win32.Build.0 = Dynamic Library|Win32
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Dynamic Library|x64.ActiveCfg = Dynamic Library|x64
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Dynamic Library|x64.Build.0 = Dynamic Library|x64
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Example|Win32.ActiveCfg = Example|Win32
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Example|Win32.Build.0 = Example|Win32
 		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Example|x64.ActiveCfg = Example|x64
 		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Example|x64.Build.0 = Example|x64
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library Debug|Win32.ActiveCfg = Static Library Debug|Win32
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library Debug|Win32.Build.0 = Static Library Debug|Win32
 		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library Debug|x64.ActiveCfg = Static Library Debug|x64
 		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library Debug|x64.Build.0 = Static Library Debug|x64
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library|Win32.ActiveCfg = Static Library|Win32
-		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library|Win32.Build.0 = Static Library|Win32
 		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library|x64.ActiveCfg = Static Library|x64
 		{F1997D81-5D79-FC1C-6691-87F3D2EF627E}.Static Library|x64.Build.0 = Static Library|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80545A64-E9BE-4788-92D8-EE22DBFC9DE5}
 	EndGlobalSection
 EndGlobal
