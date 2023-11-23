@@ -14,5 +14,7 @@ namespace canl
 		HttpMethod method = GET;
 		string body;
 		map<string, string> headers;
+		bool followRedirects = true;
+		string path;
 	};
 }
