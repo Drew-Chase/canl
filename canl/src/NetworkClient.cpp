@@ -4,6 +4,7 @@
 #include <cmath>
 #include <tuple>
 #include <filesystem>
+#include <thread>
 
 struct UpdateData
 {
@@ -66,7 +67,32 @@ canl::HttpResponseMessage canl::NetworkClient::send(HttpRequestOptions options, 
 		}
 		curl_easy_setopt(this->curl, CURLOPT_HTTPHEADER, headers);
 	}
+
+	std::map<std::string, std::string> responseHeaders;
+	curl_easy_setopt(this->curl, CURLOPT_HEADERFUNCTION, [](void* contents, size_t size, size_t nmemb, void* userp) -> size_t
+	{
+		size_t totalSize = size * nmemb;
+		std::string header(static_cast<char*>(contents), totalSize);
+
+		// Extract the header name and value
+		size_t colonPos = header.find(':');
+		if (colonPos != std::string::npos)
+		{
+			std::string headerName = header.substr(0, colonPos);
+			std::string headerValue = header.substr(colonPos + 2);  // Skip ': ' after the header name
+
+			// Add the header to the map
+			auto& headersMap = *static_cast<std::map<std::string, std::string>*>(userp);
+			headersMap[headerName] = headerValue;
+		}
+
+		return totalSize;
+	});
+	curl_easy_setopt(this->curl, CURLOPT_HEADERDATA, &responseHeaders);
+
 	HttpResponseMessage response;
+	response.requestOptions = options;
+
 	if (updateCallback != nullptr)
 	{
 		NetworkUpdateMessage message;
@@ -107,8 +133,49 @@ canl::HttpResponseMessage canl::NetworkClient::send(HttpRequestOptions options, 
 			return size * nmemb;
 		});
 	}
+	else
+	{
+		// Set the response body
+		curl_easy_setopt(this->curl, CURLOPT_WRITEDATA, &response);
+		curl_easy_setopt(this->curl, CURLOPT_WRITEFUNCTION, [](void* contents, size_t size, size_t nmemb, void* userp)
+		{
+			if (userp)
+			{
+				// Cast the user pointer to the callback function
+				auto response = (HttpResponseMessage*)userp;
+
+				// Append the data to the response body
+				response->body += (char*)contents;
+			}
+			return size * nmemb;
+		});
+	}
 
 	CURLcode code = curl_easy_perform(this->curl);
+
+	// Calculate the status code, headers and reason phrase
+	long http_code = 0;
+	curl_easy_getinfo(this->curl, CURLINFO_RESPONSE_CODE, &http_code);
+	response.statusCode = http_code;
+	response.headers = responseHeaders;
+
+	return response;
+}
+
+canl::HttpResponseMessage canl::NetworkClient::get(string url, UpdateCallback updateCalback /*= nullptr*/)
+{
+	HttpRequestOptions options;
+	options.url = url;
+	options.method = GET;
+	return send(options, updateCalback);
+}
+
+canl::HttpResponseMessage canl::NetworkClient::post(string url, UpdateCallback updateCalback /*= nullptr*/)
+{
+	HttpRequestOptions options;
+	options.url = url;
+	options.method = POST;
+	return send(options, updateCalback);
 }
 
 void canl::NetworkClient::close()
