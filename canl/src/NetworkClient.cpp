@@ -4,7 +4,6 @@
 #include <cmath>
 #include <tuple>
 #include <filesystem>
-#include <thread>
 
 struct UpdateData
 {
