@@ -10,7 +10,7 @@ namespace canl
 {
 	struct HttpResponseMessage
 	{
-		int statusCode;
+		int statusCode = -1;
 		string body;
 		map<string, string> headers;
 		bool isSuccessStatusCode = statusCode >= 200 && statusCode < 300;
